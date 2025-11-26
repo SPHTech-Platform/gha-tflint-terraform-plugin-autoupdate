@@ -9,8 +9,8 @@ jobs:
   actionlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: reviewdog/action-actionlint@v1
+      - uses: actions/checkout@v6
+      - uses: reviewdog/action-actionlint@1e0347f403806115f8f81956006e0f8c1c3c681f
         if: github.event_name == 'pull_request'
       - name: Check workflow files
         run: |

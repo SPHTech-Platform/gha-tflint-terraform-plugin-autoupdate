@@ -1,7 +1,7 @@
-plugin "aws" {
+plugin "terraform" {
   enabled = true
-  version = "0.27.0"
-  source  = "github.com/terraform-linters/tflint-ruleset-aws"
+  version = "0.13.0"
+  source  = "github.com/terraform-linters/tflint-ruleset-terraform"
 }
 
 rule "terraform_deprecated_interpolation" {
@@ -43,16 +43,6 @@ rule "terraform_unused_declarations" {
 rule "terraform_unused_required_providers" {
   enabled = true
 }
-
-# rule "aws_resource_missing_tags" {
-#   enabled = true
-#   tags = [
-#     "cost-cen",
-#     "env",
-#     "owner",
-#     "hello",
-#   ]
-# }
 
 rule "terraform_naming_convention" {
   enabled = true

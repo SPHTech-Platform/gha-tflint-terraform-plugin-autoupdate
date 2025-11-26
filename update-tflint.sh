@@ -2,7 +2,7 @@
 
 # Define the GitHub repository owner and name
 owner="terraform-linters"
-repo="tflint-ruleset-aws"
+repo="tflint-ruleset-terraform"
 
 # Use curl to make a GET request to the GitHub API to get the latest release information
 response=$(curl -s "https://api.github.com/repos/$owner/$repo/releases/latest")
@@ -28,7 +28,7 @@ hcl_file="./.tflint.hcl"
 
 # Use awk to update the version value in the .hcl file within the plugin block
 awk -i inplace '
-    /plugin "aws" \{/,/\}/ {
+    /plugin "terraform" \{/,/\}/ {
     if ($0 ~ /version = ".+"/) {
         sub(/version = ".+"/, "version = \""new_version"\"")
     }
