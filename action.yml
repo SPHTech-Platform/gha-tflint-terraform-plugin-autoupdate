@@ -1,5 +1,5 @@
-name: "Update tflint aws plugins"
-description: "Run bash script to check for latest version of tflint aws plugin"
+name: "Update tflint terraform plugin"
+description: "Run bash script to check for latest version of tflint terraform plugin"
 
 inputs:
   GITHUB_TOKEN:
@@ -10,7 +10,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
 
     - name: Install latest version of GNU awk
       shell: bash
@@ -18,14 +18,14 @@ runs:
         sudo apt-get update
         sudo apt-get install gawk -y
 
-    - name: Fetch latest version of tflint aws plugin and patch version
+    - name: Fetch latest version of tflint terraform plugin and patch version
       shell: bash
-      run: $GITHUB_ACTION_PATH/update-tflint-aws.sh
+      run: $GITHUB_ACTION_PATH/update-tflint.sh
 
-    - uses: peter-evans/create-pull-request@v5
+    - uses: peter-evans/create-pull-request@v7
       with:
         token: ${{ inputs.GITHUB_TOKEN }}
-        branch: update/tflint-aws-plugin
-        title: Update tflint aws plugin version
-        commit-message: "chore: update tflint aws plugin"
-        body: "Update versions of tflint aws plugin to latest version. Please close and open PR manually to trigger CI checks."
+        branch: update/tflint-terraform-plugin
+        title: Update tflint terraform plugin version
+        commit-message: "chore: update tflint terraform plugin"
+        body: "Update versions of tflint terraform plugin to latest version. Please close and open PR manually to trigger CI checks."
