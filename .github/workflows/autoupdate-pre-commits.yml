@@ -1,4 +1,4 @@
-name: Autoupdate pre-commit configs and tflint terraform plugin
+name: Autoupdate pre-commit configs
 
 on:
   # every sunday at midnight
@@ -18,11 +18,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     steps:
-      - uses: SPHTech-Platform/gha-pre-commit-autoupdate@main
+      - uses: SPHTech-Platform/gha-pre-commit-autoupdate@63fd59b2635b958b4128ba1f3b6859984b04ff47 # v1.1.1
         name: Update pre-commit config automatically
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: SPHTech-Platform/gha-tflint-terraform-plugin-autoupdate@main
-        name: Update tflint terraform plugin automatically
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
